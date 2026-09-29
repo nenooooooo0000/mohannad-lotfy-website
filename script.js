@@ -1,280 +1,761 @@
-const projects = [
-  ['The Other Side of the Sun', '2019', 'Drama', 'An aspiring actor rebuilds his ambition after failure.'],
-  ['Water', '2022', 'Drama', 'A musician faces rejection, loss and fractured memory.'],
-  ['Adghath', '2024', 'Psychological Horror', 'Five interconnected short films exploring psychological horror.'],
-  ['Come Across', '2024', 'Drama', 'Self-discovery intertwines with an unexpected love story.'],
-  ['The Idea of the Film', '2025', 'Meta Comedy', 'A director searches for an idea and finds the film in that search.'],
-  ['Lady of the Moonlit Night', '2025', 'Psychological Drama', 'Longing for connection leads a lonely man into hallucination.']
-];
-
-const workGrid = document.getElementById('workGrid');
-workGrid.innerHTML = projects.map((project) => `
-  <article class="work-card">
-    <div class="work-info">
-      <small>${project[1]}</small>
-      <h3>${project[0]}</h3>
-      <p>${project[2]}</p>
-    </div>
-  </article>
-`).join('');
-
-const copy = {
-  ar: {
-    eyebrow: 'صانع أفلام من الإسكندرية',
-    tagline: 'حكايات تُصنع من الضوء، والإحساس، والحقيقة البصرية.',
-    explore: 'استكشف الأعمال',
-    start: 'ابدأ مشروعًا',
-    selected: 'مختارات',
-    workTitle: 'أعمال تحكي أكثر<br><em>مما تقول.</em>',
-    workIntro: 'أفلام سردية، إعلانات، وحملات إبداعية — من الفكرة إلى الشاشة.',
-    aboutLabel: 'عن المخرج',
-    aboutTitle: 'الصورة تحكي<br><em>ما لا يقوله الكلام.</em>',
-    aboutText: 'مهند لطفي صانع أفلام مصري يعمل في الإخراج، والتصوير السينمائي، والمونتاج، والإنتاج الإبداعي. يمتلك خبرة متراكمة في الإعلانات، المحتوى التجاري، الأفلام القصيرة، والمشروعات السردية.',
-    aboutText2: 'يجمع أسلوبه بين السرد البصري والتكوين الدقيق والاهتمام بالتفاصيل الإنسانية، مع استكشاف أدوات الذكاء الاصطناعي لتوسيع إمكانيات صناعة الصورة.',
-    servicesLabel: 'الخدمات',
-    servicesTitle: 'من الفكرة<br>إلى التنفيذ.',
-    servicesIntro: 'فريق إبداعي يقود مشروعك بصريًا وإنتاجيًا حتى التسليم النهائي.',
-    s1: 'إخراج وتصوير',
-    s1d: 'إعلانات، أفلام قصيرة، ومحتوى بصري بهوية سينمائية.',
-    s2: 'مونتاج وتلوين',
-    s2d: 'إيقاع، سرد، وتصحيح ألوان يرفع قيمة كل لقطة.',
-    s3: 'إنتاج إبداعي',
-    s3d: 'إدارة الفريق والميزانية والجدول من الفكرة إلى التسليم.',
-    s4: 'AI Video Workflows',
-    s4d: 'استخدام Runway وTopaz AI كأدوات مساعدة في الإنتاج.',
-    pricingLabel: 'الأسعار',
-    pricingTitle: 'اختر مستوى<br><em>المشروع.</em>',
-    pricingIntro: 'الأسعار استرشادية وتتغير حسب الفكرة، عدد أيام التصوير، وحجم الفريق.',
-    teamLabel: 'الفريق',
-    teamTitle: 'قيادة واضحة.<br><em>رؤية مشتركة.</em>',
-    teamIntro: 'مهند يقود المشروع كـ Team Leader، مع جمع المواهب المناسبة لكل قصة.',
-    teamBio: 'Director · Creative Director · Cinematographer · Editor · Producer',
-    contactLabel: 'لنتحدث',
-    contactTitle: 'لنصنع شيئًا<br><em>لا يُنسى.</em>',
-    contactText: 'للاستفسارات المهنية، الإعلانات، الأفلام، أو أي تعاون إبداعي.',
-    ask: 'اسأل عن الأفلام',
-    botWelcome: 'أهلًا! اسألني عن الأفلام، الخدمات، الخبرة أو الأسعار.',
-    sourceNote: 'المصدر: السيرة الذاتية ومحتوى الموقع. هذا مساعد معلوماتي وليس بديلاً عن التواصل المباشر.'
-  },
-  en: {
-    eyebrow: 'Filmmaker from Alexandria',
-    tagline: 'Stories shaped by light, emotion, and visual truth.',
-    explore: 'Explore the work',
-    start: 'Start a project',
-    selected: 'Selected',
-    workTitle: 'Stories that say<br><em>more than words.</em>',
-    workIntro: 'Narrative films, commercials and creative campaigns — from idea to screen.',
-    aboutLabel: 'The director',
-    aboutTitle: 'The image says<br><em>what words cannot.</em>',
-    aboutText: 'Mohaned Lotfy is an Egyptian filmmaker working across directing, cinematography, editing and creative production with a strong track record across commercials and cinematic storytelling.',
-    aboutText2: 'His approach blends visual storytelling, precise composition, and human detail while exploring AI tools to expand visual possibilities.',
-    servicesLabel: 'Services',
-    servicesTitle: 'From the idea<br>to execution.',
-    servicesIntro: 'Creative and production leadership through every stage of the project.',
-    s1: 'Direction & cinematography',
-    s1d: 'Commercials, short films and cinematic visual content.',
-    s2: 'Editing & grading',
-    s2d: 'Rhythm, story and color that elevate every frame.',
-    s3: 'Creative production',
-    s3d: 'Team, budget and schedule management from idea to delivery.',
-    s4: 'AI Video Workflows',
-    s4d: 'Runway and Topaz AI as assisting tools in production.',
-    pricingLabel: 'Pricing',
-    pricingTitle: 'Choose the right<br><em>scale.</em>',
-    pricingIntro: 'Indicative pricing changes with concept, shoot days and team size.',
-    teamLabel: 'The team',
-    teamTitle: 'Clear leadership.<br><em>Shared vision.</em>',
-    teamIntro: 'Mohaned leads each project as Team Leader, building the right team for every story.',
-    teamBio: 'Director · Creative Director · Cinematographer · Editor · Producer',
-    contactLabel: 'Let’s talk',
-    contactTitle: 'Let’s create something<br><em>unforgettable.</em>',
-    contactText: 'For professional inquiries, commercials, films, or creative collaborations.',
-    ask: 'Ask about films',
-    botWelcome: 'Hello! Ask me about films, services, experience or pricing.',
-    sourceNote: 'Source: CV and website content. This is an informational assistant and not a replacement for direct contact.'
-  }
-};
-
-let activeLang = localStorage.getItem('mohaned-lang') || 'ar';
-
-const languageGate = document.getElementById('languageGate');
-const langToggle = document.getElementById('langToggle');
-
-type LanguageKey = keyof typeof copy.ar;
-
-function setLanguage(lang) {
-  activeLang = lang;
-  document.documentElement.lang = lang;
-  document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
-  document.querySelectorAll('[data-t]').forEach((el) => {
-    const key = el.dataset.t;
-    if (copy[lang][key]) {
-      el.innerHTML = copy[lang][key];
-    }
-  });
-  langToggle.textContent = lang === 'ar' ? 'EN' : 'AR';
-  localStorage.setItem('mohaned-lang', lang);
-  languageGate.classList.add('hidden');
+:root {
+  --bg: #0B0B0B;
+  --bg-soft: #111111;
+  --panel: #1A1A1A;
+  --card: #E8E1D6;
+  --card-2: #F5F1EA;
+  --text: #F7F3EE;
+  --text-dark: #0B0B0B;
+  --muted: #B7B0A9;
+  --muted-dark: #5B564F;
+  --charcoal: #2A2A2A;
+  --slate: #637D92;
+  --sand: #A8936B;
+  --line: rgba(99,125,146,0.35);
+  --shadow: rgba(0, 0, 0, 0.28);
 }
 
-document.querySelectorAll('[data-language]').forEach((button) => {
-  button.addEventListener('click', () => setLanguage(button.dataset.language));
-});
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Inter", sans-serif;
+  line-height: 1.6;
+}
+body[dir="rtl"] { font-family: "Inter", sans-serif; }
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+button, input { font: inherit; }
+button { cursor: pointer; }
 
-langToggle.addEventListener('click', () => {
-  setLanguage(activeLang === 'ar' ? 'en' : 'ar');
-});
+.eyebrow {
+  margin: 0 0 18px;
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--slate);
+}
+.eyebrow.dark { color: #5c6d7a; }
 
-setLanguage(activeLang);
-
-const searchModal = document.getElementById('searchModal');
-const searchInput = document.getElementById('searchInput');
-const searchResults = document.getElementById('searchResults');
-
-document.getElementById('searchOpen').addEventListener('click', () => {
-  searchModal.classList.add('open');
-  searchInput.focus();
-});
-
-document.getElementById('searchClose').addEventListener('click', () => {
-  searchModal.classList.remove('open');
-});
-
-searchInput.addEventListener('input', () => {
-  const query = searchInput.value.trim().toLowerCase();
-  if (!query) {
-    searchResults.innerHTML = '<p>Type a keyword to search the portfolio.</p>';
-    return;
-  }
-
-  const filtered = projects.filter((project) => project.join(' ').toLowerCase().includes(query));
-  searchResults.innerHTML = filtered.length
-    ? filtered.map((item) => `
-      <div class="search-result">
-        <strong>${item[0]}</strong>
-        <small>${item[1]} · ${item[2]}</small>
-      </div>
-    `).join('')
-    : '<p>No results found.</p>';
-});
-
-const chatBox = document.getElementById('chatBox');
-const messages = document.getElementById('messages');
-const chatInput = document.getElementById('chatInput');
-
-function addMessage(text, isUser = false) {
-  const div = document.createElement('div');
-  div.className = isUser ? 'user-msg' : 'bot-msg';
-  div.textContent = text;
-  messages.appendChild(div);
-  messages.scrollTop = messages.scrollHeight;
+.topbar {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 90;
+  height: 82px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 0 5.5%;
+  background: rgba(11, 11, 11, 0.78);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255,255,255,0.04);
 }
 
-function getAiReply(question) {
-  const q = question.toLowerCase();
-  if (q.includes('film') || q.includes('movie') || q.includes('فيلم')) {
-    return 'Selected works include The Other Side of the Sun, Water, Adghath, Come Across, The Idea of the Film, and Lady of the Moonlit Night.';
-  }
-  if (q.includes('price') || q.includes('pricing') || q.includes('سعر')) {
-    return 'Project prices typically start at $250 for smaller work and $650 for signature production packages, depending on scope.';
-  }
-  if (q.includes('service') || q.includes('خدمة') || q.includes('work')) {
-    return 'Services include direction, cinematography, editing, colour grading, creative production, and AI-assisted production workflows.';
-  }
-  if (q.includes('experience') || q.includes('خبرة') || q.includes('about')) {
-    return 'Mohaned Lotfy works across directing, cinematography, editing, and creative production, creating cinematic work grounded in human detail and visual clarity.';
-  }
-  return 'I can answer questions about films, services, pricing, and experience. You can also ask: which projects are your most important?';
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.brand-mark,
+.gate-mark,
+.portrait-mark,
+.avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border: 1px solid rgba(99,125,146,0.35);
+  background: rgba(99,125,146,0.08);
+  color: var(--slate);
+  font-family: "Montserrat", sans-serif;
+  font-size: 30px;
+  font-weight: 300;
+  line-height: 1;
+}
+.brand-wordmark {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+}
+.word-main {
+  font-family: "Montserrat", sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 3px;
+}
+.word-sub {
+  font-size: 8px;
+  letter-spacing: 2.2px;
+  color: var(--muted);
+  margin-top: 4px;
 }
 
-document.getElementById('chatToggle').addEventListener('click', () => {
-  chatBox.classList.toggle('open');
-});
+.main-nav {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+.main-nav a {
+  color: var(--muted);
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  transition: color 0.25s ease;
+}
+.main-nav a:hover { color: var(--slate); }
 
-document.getElementById('chatClose').addEventListener('click', () => {
-  chatBox.classList.remove('open');
-});
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.utility-btn, .lang-btn, .menu-btn {
+  border: 0;
+  background: transparent;
+  color: var(--slate);
+}
+.lang-btn {
+  border: 1px solid rgba(99,125,146,0.35);
+  padding: 8px 10px;
+  font-size: 10px;
+  letter-spacing: 2px;
+}
+.menu-btn { display: none; }
 
-document.getElementById('sendChat').addEventListener('click', () => {
-  const value = chatInput.value.trim();
-  if (!value) return;
-  addMessage(value, true);
-  addMessage(getAiReply(value), false);
-  chatInput.value = '';
-});
+.mobile-nav {
+  display: none;
+  position: fixed;
+  top: 82px;
+  inset-inline: 0;
+  z-index: 50;
+  background: rgba(11, 11, 11, 0.96);
+  padding: 18px 5.5% 20px;
+  flex-direction: column;
+  gap: 12px;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+}
+.mobile-nav.open { display: flex; }
 
-chatInput.addEventListener('keydown', (event) => {
-  if (event.key === 'Enter') {
-    document.getElementById('sendChat').click();
-  }
-});
+.hero {
+  min-height: 100vh;
+  padding: 170px 8% 100px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  background:
+    radial-gradient(circle at 72% 22%, rgba(99,125,146,0.18), transparent 18%),
+    linear-gradient(115deg, #0B0B0B 32%, rgba(11,11,11,0.72)),
+    repeating-linear-gradient(135deg, rgba(255,255,255,0.02) 0 1px, transparent 1px 8px);
+}
+.hero-copy { max-width: 760px; }
+.hero h1 {
+  margin: 0;
+  font-family: "Montserrat", sans-serif;
+  font-size: clamp(72px, 12vw, 180px);
+  line-height: 0.76;
+  letter-spacing: -7px;
+  font-weight: 300;
+}
+.hero h1 em, h2 em { color: var(--slate); font-style: normal; }
+.lead {
+  margin: 30px 0 38px;
+  max-width: 520px;
+  color: var(--muted);
+  font-size: clamp(18px, 2vw, 28px);
+  line-height: 1.55;
+}
+.hero-actions { display: flex; gap: 18px; flex-wrap: wrap; }
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 0 22px;
+  border: 1px solid rgba(99,125,146,0.35);
+  font-size: 10px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+.btn:hover { transform: translateY(-1px); }
+.btn.primary {
+  background: var(--slate);
+  color: var(--text);
+  border-color: var(--slate);
+}
+.btn.secondary {
+  background: transparent;
+  color: var(--text);
+}
+.btn.full { width: 100%; }
 
-const menuToggle = document.getElementById('menuToggle');
-const mobileNav = document.getElementById('mobileNav');
-menuToggle.addEventListener('click', () => {
-  mobileNav.classList.toggle('open');
-});
-
-const tabs = document.querySelectorAll('.tab');
-const panels = document.querySelectorAll('.bottom-panel');
-
-function hidePanels() {
-  panels.forEach((panel) => panel.classList.remove('open'));
+.hero-meta {
+  align-self: flex-end;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  color: var(--muted);
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  border-inline-start: 1px solid var(--slate);
+  padding-inline-start: 18px;
 }
 
-tabs.forEach((tab) => {
-  tab.addEventListener('click', () => {
-    tabs.forEach((item) => item.classList.remove('active'));
-    tab.classList.add('active');
-    const target = tab.dataset.target;
-    hidePanels();
-    if (target === 'chat') chatBox.classList.add('open');
-    if (target === 'search') searchModal.classList.add('open');
-    if (target === 'role') document.getElementById('panelRole').classList.add('open');
-    if (target === 'settings') document.getElementById('panelSettings').classList.add('open');
-    if (target === 'login') document.getElementById('panelLogin').classList.add('open');
-  });
-});
+.section {
+  padding: 120px 8%;
+}
+.white-section {
+  background: var(--card);
+  color: var(--text-dark);
+}
+.dark-section {
+  background: #171716;
+  color: var(--text);
+}
+.split-section {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 7%;
+  align-items: center;
+  background: #0e0e0e;
+  padding: 120px 8%;
+}
+.section-head {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 30px;
+  margin-bottom: 52px;
+}
+.section-head h2, .contact-section h2, .story-block h2 {
+  margin: 0;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 300;
+  line-height: 0.9;
+  font-size: clamp(42px, 6vw, 90px);
+  letter-spacing: -2px;
+}
+.section-head > p, .story-block p, .contact-copy {
+  max-width: 430px;
+  margin: 0;
+  color: var(--muted-dark);
+}
+.dark-section .section-head > p { color: var(--muted); }
 
-document.querySelectorAll('.role-btn').forEach((btn) => {
-  btn.addEventListener('click', () => {
-    alert('Selected role: ' + btn.textContent.trim());
-  });
-});
+.work-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(220px, 1fr));
+  gap: 18px;
+}
+.work-card {
+  position: relative;
+  min-height: 430px;
+  overflow: hidden;
+  padding: 20px;
+  display: flex;
+  align-items: end;
+  border: 1px solid rgba(0,0,0,0.08);
+  background: linear-gradient(135deg, #201c18, #867155);
+}
+.work-card:nth-child(2n) { background: linear-gradient(135deg, #111111, #3b4e51); }
+.work-card:nth-child(3n) { background: linear-gradient(135deg, #0e0e0e, #563a37); }
+.work-card:nth-child(4n) { background: linear-gradient(135deg, #1a1b1a, #756557); }
+.work-card:nth-child(5n) { background: linear-gradient(135deg, #141b20, #4a6567); }
+.work-card:nth-child(6n) { background: linear-gradient(135deg, #181216, #5f4e67); }
+.work-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(transparent 18%, rgba(0,0,0,0.78));
+}
+.work-info {
+  position: relative;
+  z-index: 1;
+  color: var(--text);
+}
+.work-info small {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: var(--sand);
+}
+.work-info h3 {
+  margin: 0 0 12px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 38px;
+  font-weight: 300;
+  letter-spacing: -1px;
+}
+.work-info p {
+  margin: 0;
+  font-size: 12px;
+  color: rgba(255,255,255,0.82);
+}
 
-document.querySelector('.login-form').addEventListener('submit', (event) => {
-  event.preventDefault();
-  alert('Login form is ready for Firebase integration.');
-});
+.portrait-card {
+  min-height: 540px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  background: linear-gradient(145deg, #171717, #0b0b0b);
+  border: 1px solid var(--line);
+}
+.portrait-mark {
+  width: 110px;
+  height: 110px;
+  font-size: 94px;
+  border-color: rgba(99,125,146,0.35);
+  color: var(--slate);
+}
+.portrait-card small {
+  color: var(--slate);
+  letter-spacing: 3px;
+  font-size: 11px;
+}
+.story-block p {
+  color: var(--muted);
+  line-height: 2;
+  max-width: 560px;
+}
 
-const policyModal = document.getElementById('policyModal');
-const policyContent = document.getElementById('policyContent');
-const policyMap = {
-  privacy: {
-    title: 'Privacy Policy',
-    body: 'This website may collect contact details, project requests, and communication data for business use. Information is kept for service delivery, analytics, and security purposes only.'
-  },
-  terms: {
-    title: 'Terms & Conditions',
-    body: 'By using this website, the user agrees to receive professional communication, project-related contact, and relevant service information from the owner.'
-  },
-  copyright: {
-    title: 'Copyright Policy',
-    body: 'All creative content displayed on this site remains the property of Mohaned Lotfy unless otherwise stated. Unauthorized use is prohibited.'
-  }
-};
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(180px, 1fr));
+  gap: 16px;
+}
+.service-grid article {
+  min-height: 240px;
+  padding: 24px 20px;
+  border: 1px solid var(--line);
+  background: rgba(255,255,255,0.02);
+}
+.service-grid b {
+  color: var(--slate);
+  font-size: 28px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 300;
+}
+.service-grid h3 {
+  margin: 20px 0 16px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 30px;
+  font-weight: 300;
+}
+.service-grid p {
+  margin: 0;
+  color: #d0c9c1;
+  font-size: 13px;
+}
 
-document.querySelectorAll('[data-policy]').forEach((el) => {
-  el.addEventListener('click', () => {
-    const key = el.dataset.policy;
-    const item = policyMap[key];
-    policyContent.innerHTML = `<h3>${item.title}</h3><p>${item.body}</p>`;
-    policyModal.classList.add('open');
-  });
-});
+.price-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(220px, 1fr));
+  gap: 18px;
+}
+.price-card {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  min-height: 390px;
+  padding: 30px 22px;
+  border: 1px solid rgba(25,25,25,0.12);
+  background: white;
+  color: var(--text-dark);
+}
+.price-card.featured {
+  background: #161311;
+  color: var(--text);
+  transform: translateY(-10px);
+  border-color: rgba(99,125,146,0.35);
+}
+.price-card h3 {
+  margin: 0;
+  font-family: "Montserrat", sans-serif;
+  font-size: 42px;
+  font-weight: 300;
+}
+.price-card strong {
+  font-size: 24px;
+}
+.price-card ul {
+  margin: 0;
+  padding-inline-start: 18px;
+  line-height: 2;
+  color: var(--muted-dark);
+}
+.price-card.featured ul { color: #d6d0c9; }
 
-document.getElementById('policyClose').addEventListener('click', () => {
-  policyModal.classList.remove('open');
-});
+.team-section {
+  background: #efe7df;
+  color: var(--text-dark);
+}
+.team-card {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  padding: 26px 28px;
+  background: white;
+  border-top: 3px solid var(--slate);
+  box-shadow: 0 12px 24px rgba(0,0,0,0.04);
+}
+.avatar {
+  width: 84px;
+  height: 84px;
+  background: rgba(99,125,146,0.06);
+  border-color: rgba(99,125,146,0.35);
+  font-size: 52px;
+}
+.team-card h3 {
+  margin: 0 0 8px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 42px;
+  font-weight: 300;
+}
+.team-card p {
+  margin: 0;
+  color: var(--muted-dark);
+}
+.team-number {
+  margin-inline-start: auto;
+  font-family: "Montserrat", sans-serif;
+  font-size: 46px;
+  font-weight: 300;
+  color: var(--slate);
+}
 
-setLanguage(activeLang);
+.contact-section {
+  padding: 110px 8% 90px;
+  border-top: 1px solid rgba(99,125,146,0.28);
+}
+.contact-copy {
+  margin: 20px 0 28px;
+  color: var(--muted);
+  max-width: 640px;
+}
+.contact-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+}
+.contact-links a {
+  color: var(--slate);
+  font-size: 13px;
+  border-bottom: 1px solid transparent;
+}
+.contact-links a:hover { border-color: var(--slate); }
+
+.site-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 20px 8% 90px;
+  border-top: 1px solid rgba(255,255,255,0.05);
+  color: var(--muted);
+  font-size: 12px;
+}
+.footer-meta, .footer-links {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+.mini-link {
+  border: 0;
+  background: transparent;
+  color: var(--slate);
+  padding: 0;
+}
+
+.search-modal, .policy-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 120;
+  display: none;
+  place-items: center;
+  background: rgba(0,0,0,0.8);
+  padding: 26px;
+}
+.search-modal.open, .policy-modal.open { display: grid; }
+.search-box, .policy-box {
+  position: relative;
+  width: min(700px, 100%);
+  background: var(--card);
+  color: var(--text-dark);
+  padding: 38px 28px 18px;
+  box-shadow: 0 24px 60px rgba(0,0,0,0.35);
+}
+.close-btn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  border: 0;
+  background: transparent;
+  font-size: 30px;
+  color: var(--text-dark);
+}
+.search-box input {
+  width: 100%;
+  border: 0;
+  border-bottom: 1px solid rgba(0,0,0,0.22);
+  background: transparent;
+  padding: 14px 0 12px;
+  outline: none;
+  color: var(--text-dark);
+  font-size: 18px;
+}
+.search-results {
+  margin-top: 14px;
+  display: grid;
+  gap: 10px;
+}
+.search-result {
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+}
+.search-result strong {
+  display: block;
+  margin-bottom: 4px;
+}
+.search-result small {
+  color: var(--muted-dark);
+}
+
+.chat-widget {
+  position: fixed;
+  right: 22px;
+  bottom: 88px;
+  z-index: 100;
+}
+.chat-toggle {
+  border: 0;
+  background: var(--slate);
+  color: var(--text);
+  padding: 14px 18px;
+  letter-spacing: 1px;
+  font-size: 11px;
+  text-transform: uppercase;
+  box-shadow: 0 18px 30px rgba(0,0,0,0.25);
+}
+.chat-box {
+  display: none;
+  width: min(360px, calc(100vw - 28px));
+  background: #f5f0ea;
+  color: var(--text-dark);
+  box-shadow: 0 18px 33px rgba(0,0,0,0.22);
+  margin-top: 10px;
+}
+.chat-box.open { display: block; }
+.chat-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 16px;
+  background: var(--bg);
+  color: var(--text);
+}
+.chat-head button {
+  border: 0;
+  background: transparent;
+  color: var(--slate);
+  font-size: 24px;
+}
+.chat-messages {
+  max-height: 250px;
+  overflow: auto;
+  padding: 12px 14px;
+  display: grid;
+  gap: 10px;
+}
+.bot-msg, .user-msg {
+  max-width: 86%;
+  padding: 10px 12px;
+  font-size: 13px;
+  line-height: 1.6;
+}
+.bot-msg { background: #e3d9ce; }
+.user-msg {
+  margin-inline-start: auto;
+  background: var(--slate);
+  color: var(--text);
+}
+.chat-input-row {
+  display: flex;
+  align-items: center;
+  border-top: 1px solid rgba(0,0,0,0.12);
+}
+.chat-input-row input {
+  flex: 1;
+  border: 0;
+  background: transparent;
+  padding: 14px 12px;
+  outline: none;
+}
+.chat-input-row button {
+  border: 0;
+  background: var(--slate);
+  color: var(--text);
+  height: 48px;
+  padding: 0 16px;
+}
+.chat-box small {
+  display: block;
+  padding: 8px 12px 12px;
+  color: #6c6763;
+  font-size: 10px;
+}
+
+.bottom-tabs {
+  position: fixed;
+  z-index: 110;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 10px;
+  background: rgba(17,17,17,0.94);
+  border: 1px solid rgba(99,125,146,0.35);
+  border-radius: 999px;
+}
+.tab {
+  min-width: 62px;
+  padding: 9px 8px;
+  border: 0;
+  background: transparent;
+  color: var(--text);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+}
+.tab.active {
+  background: rgba(99,125,146,0.14);
+  border-radius: 12px;
+}
+
+.bottom-panel {
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 88px;
+  z-index: 108;
+  display: none;
+  width: min(420px, calc(100vw - 20px));
+}
+.bottom-panel.open { display: block; }
+.panel-box {
+  background: var(--card);
+  color: var(--text-dark);
+  padding: 20px 18px;
+  box-shadow: 0 18px 36px rgba(0,0,0,0.2);
+}
+.role-grid {
+  display: grid;
+  gap: 10px;
+  margin-top: 12px;
+}
+.role-btn {
+  border: 1px solid rgba(0,0,0,0.1);
+  background: #f5f0ea;
+  padding: 12px;
+  text-align: left;
+}
+.check-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+.login-form {
+  display: grid;
+  gap: 10px;
+}
+.login-form input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid rgba(0,0,0,0.12);
+  background: white;
+}
+
+.language-gate {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: grid;
+  place-items: center;
+  background: rgba(11,11,11,0.95);
+}
+.language-gate.hidden { display: none; }
+.gate-card {
+  width: min(500px, calc(100vw - 28px));
+  padding: 40px 30px;
+  background: rgba(17,17,17,0.9);
+  border: 1px solid rgba(99,125,146,0.35);
+  text-align: center;
+}
+.gate-mark {
+  width: 72px;
+  height: 72px;
+  margin: 0 auto 16px;
+  font-size: 52px;
+}
+.gate-card h1 {
+  margin: 14px 0 26px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 300;
+  letter-spacing: -1px;
+  font-size: clamp(30px, 4vw, 48px);
+}
+.gate-card h1 span {
+  display: block;
+  color: var(--slate);
+  margin-top: 8px;
+}
+.language-options {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.language-options button {
+  border: 1px solid rgba(99,125,146,0.35);
+  background: transparent;
+  color: var(--text);
+  padding: 12px 20px;
+  min-width: 120px;
+}
+
+@media (max-width: 900px) {
+  .main-nav { display: none; }
+  .menu-btn { display: block; }
+  .hero { display: block; padding-top: 150px; }
+  .hero-meta { margin-top: 70px; }
+  .section-head, .split-section { display: block; }
+  .section-head > p { margin-top: 22px; }
+  .work-grid, .price-grid, .service-grid { grid-template-columns: 1fr 1fr; }
+  .team-card { flex-wrap: wrap; }
+  .team-number { margin-inline-start: 0; }
+  .chat-widget { right: 12px; }
+}
+
+@media (max-width: 620px) {
+  .work-grid, .price-grid, .service-grid { grid-template-columns: 1fr; }
+  .brand-wordmark { display: none; }
+  .hero h1 { letter-spacing: -3px; }
+  .site-footer { display: block; }
+  .footer-links { margin-top: 12px; }
+  .bottom-tabs { width: calc(100vw - 24px); justify-content: space-between; }
+  .tab { min-width: 0; flex: 1; }
+}

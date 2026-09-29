@@ -1,710 +1,304 @@
-:root {
-  --bg: #0B0B0B;
-  --bg-soft: #111111;
-  --panel: #1A1A1A;
-  --card: #E8E1D6;
-  --card-2: #F5F1EA;
-  --text: #F7F3EE;
-  --text-dark: #0B0B0B;
-  --muted: #B7B0A9;
-  --muted-dark: #5B564F;
-  --charcoal: #2A2A2A;
-  --slate: #637D92;
-  --sand: #A8936B;
-  --line: rgba(99,125,146,0.35);
-  --shadow: rgba(0, 0, 0, 0.28);
-}
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="MOHANED LOTFY — Director / Producer / DoP. Contemporary Egyptian auteur filmmaker." />
+    <title>MOHANED LOTFY | Director / Producer / DoP</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="language-gate" id="languageGate">
+      <div class="gate-card">
+        <div class="gate-mark">M</div>
+        <p class="eyebrow">WELCOME / أهلاً</p>
+        <h1>Choose your language<br /><span>اختر لغتك</span></h1>
+        <div class="language-options">
+          <button type="button" data-language="ar">العربية</button>
+          <button type="button" data-language="en">English</button>
+        </div>
+      </div>
+    </div>
 
-* { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-body {
-  margin: 0;
-  background: var(--bg);
-  color: var(--text);
-  font-family: "Inter", sans-serif;
-  line-height: 1.6;
-}
-body[dir="rtl"] { font-family: "Inter", sans-serif; }
-img { max-width: 100%; display: block; }
-a { color: inherit; text-decoration: none; }
-button, input { font: inherit; }
-button { cursor: pointer; }
+    <header class="topbar">
+      <a class="brand" href="#home" aria-label="Mohaned Lotfy home">
+        <div class="brand-mark">M</div>
+        <div class="brand-wordmark">
+          <span class="word-main">MOHANED LOTFY</span>
+          <span class="word-sub">DIRECTOR / PRODUCER / DoP</span>
+        </div>
+      </a>
 
-.eyebrow {
-  margin: 0 0 18px;
-  font-size: 10px;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  color: var(--slate);
-}
-.eyebrow.dark { color: #5c6d7a; }
+      <nav class="main-nav">
+        <a href="#home">HOME</a>
+        <a href="#work">WORK</a>
+        <a href="#about">ABOUT</a>
+        <a href="#services">SERVICES</a>
+        <a href="#pricing">PRICING</a>
+        <a href="#contact">CONTACT</a>
+      </nav>
 
-.topbar {
-  position: fixed;
-  inset: 0 0 auto 0;
-  z-index: 90;
-  height: 82px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
-  padding: 0 5.5%;
-  background: rgba(11,11,11,0.8);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(255,255,255,0.05);
-}
+      <div class="header-actions">
+        <button id="searchOpen" class="utility-btn" aria-label="Search">⌕</button>
+        <button id="langToggle" class="lang-btn">EN</button>
+        <button id="menuToggle" class="menu-btn" aria-label="Open menu">☰</button>
+      </div>
+    </header>
 
-.brand {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-}
-.brand-mark, .logo-mark, .portrait-mark, .avatar {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 42px;
-  height: 42px;
-  border: 1px solid rgba(99,125,146,0.35);
-  background: rgba(99,125,146,0.06);
-  color: var(--slate);
-  font-family: "Montserrat", sans-serif;
-  font-size: 32px;
-  font-weight: 300;
-  line-height: 1;
-}
-.brand-wordmark {
-  display: flex;
-  flex-direction: column;
-  line-height: 1.1;
-}
-.word-main {
-  font-family: "Montserrat", sans-serif;
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 3px;
-}
-.word-sub {
-  font-size: 8px;
-  letter-spacing: 2.4px;
-  color: var(--muted);
-  margin-top: 4px;
-}
+    <div class="mobile-nav" id="mobileNav">
+      <a href="#home">HOME</a>
+      <a href="#work">WORK</a>
+      <a href="#about">ABOUT</a>
+      <a href="#services">SERVICES</a>
+      <a href="#pricing">PRICING</a>
+      <a href="#contact">CONTACT</a>
+    </div>
 
-.main-nav {
-  display: flex;
-  align-items: center;
-  gap: 24px;
-}
-.main-nav a {
-  color: var(--muted);
-  font-size: 10px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  transition: color 0.25s ease;
-}
-.main-nav a:hover { color: var(--slate); }
+    <main>
+      <section id="home" class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">DIRECTOR / PRODUCER / DoP</p>
+          <h1>MOHANED<br /><em>LOTFY</em></h1>
+          <p class="lead">Contemporary Egyptian auteur cinema shaped by intention, silence, and human truth.</p>
+          <div class="hero-actions">
+            <a href="#work" class="btn primary">SELECTED WORK</a>
+            <a href="#contact" class="btn secondary">START A PROJECT</a>
+          </div>
+        </div>
 
-.header-actions {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-}
-.utility-btn, .lang-btn, .menu-btn {
-  border: 0;
-  background: transparent;
-  color: var(--slate);
-}
-.lang-btn {
-  border: 1px solid rgba(99,125,146,0.35);
-  padding: 8px 10px;
-  font-size: 10px;
-  letter-spacing: 2px;
-}
-.menu-btn { display: none; }
+        <div class="hero-meta">
+          <span>DIRECTOR</span>
+          <span>PRODUCER</span>
+          <span>DoP</span>
+        </div>
+      </section>
 
-.mobile-nav {
-  display: none;
-  position: fixed;
-  top: 82px;
-  inset-inline: 0;
-  z-index: 50;
-  background: rgba(11,11,11,0.96);
-  padding: 18px 5.5%; 20px;
-  flex-direction: column;
-  gap: 12px;
-  border-bottom: 1px solid rgba(255,255,255,0.05);
-}
-.mobile-nav.open { display: flex; }
+      <section id="work" class="section white-section">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow dark">SELECTED</p>
+            <h2>Films that say<br /><em>more than words.</em></h2>
+          </div>
+          <p>Artistic films, campaigns and narrative projects created with cinematic clarity.</p>
+        </div>
+        <div class="work-grid" id="workGrid"></div>
+      </section>
 
-.hero {
-  min-height: 100vh;
-  padding: 160px 8% 100px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 24px;
-  background:
-    radial-gradient(circle at 72% 22%, rgba(99,125,146,0.2), transparent 20%),
-    linear-gradient(115deg, #0B0B0B 32%, rgba(11,11,11,0.7)),
-    repeating-linear-gradient(135deg, rgba(255,255,255,0.02) 0 1px, transparent 1px 8px);
-}
-.hero-copy { max-width: 780px; }
-.hero h1 {
-  margin: 0;
-  font-family: "Montserrat", sans-serif;
-  font-size: clamp(72px, 13vw, 180px);
-  line-height: 0.75;
-  letter-spacing: -6px;
-  font-weight: 300;
-}
-.hero h1 em, h2 em { color: var(--slate); font-style: normal; }
-.lead {
-  margin: 30px 0 38px;
-  max-width: 540px;
-  color: var(--muted);
-  font-size: clamp(18px, 2vw, 28px);
-  line-height: 1.55;
-}
-.hero-actions { display: flex; gap: 18px; flex-wrap: wrap; }
-.btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 48px;
-  padding: 0 22px;
-  border: 1px solid rgba(99,125,146,0.35);
-  font-size: 10px;
-  letter-spacing: 2.5px;
-  text-transform: uppercase;
-  transition: transform 0.2s ease, opacity 0.2s ease;
-}
-.btn:hover { transform: translateY(-1px); }
-.btn.primary {
-  background: var(--slate);
-  color: var(--text);
-  border-color: var(--slate);
-}
-.btn.secondary {
-  background: transparent;
-  color: var(--text);
-}
-.btn.full { width: 100%; }
+      <section id="about" class="section split-section">
+        <div class="portrait-card">
+          <div class="portrait-mark">M</div>
+          <small>ALEXANDRIA / EGYPT</small>
+        </div>
+        <div class="story-block">
+          <p class="eyebrow">ABOUT</p>
+          <h2>The image says<br /><em>what words cannot.</em></h2>
+          <p>Mohaned Lotfy is an Egyptian filmmaker working across directing, cinematography, editing, and creative production. His work blends authored visual storytelling with a strong sense of atmosphere, silence, and emotional precision.</p>
+          <p>He approaches every project with cinematic discipline, human attention, and a contemporary visual language grounded in Egypt and shaped for international audiences.</p>
+        </div>
+      </section>
 
-.hero-meta {
-  align-self: flex-end;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  color: var(--muted);
-  font-size: 10px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  border-inline-start: 1px solid var(--slate);
-  padding-inline-start: 18px;
-}
+      <section id="services" class="section dark-section">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">SERVICES</p>
+            <h2>From idea<br />to execution.</h2>
+          </div>
+          <p>Creative leadership from concept to delivery, balancing artistic intention and practical production.</p>
+        </div>
 
-.section {
-  padding: 120px 8%;
-}
-.white-section {
-  background: var(--card);
-  color: var(--text-dark);
-}
-.dark-section {
-  background: #171716;
-  color: var(--text);
-}
-.split-section {
-  display: grid;
-  grid-template-columns: 0.9fr 1.1fr;
-  gap: 7%;
-  align-items: center;
-  background: #0e0e0e;
-  padding: 120px 8%;
-}
-.section-head {
-  display: flex;
-  align-items: end;
-  justify-content: space-between;
-  gap: 30px;
-  margin-bottom: 52px;
-}
-.section-head h2, .contact-section h2, .story-block h2 {
-  margin: 0;
-  font-family: "Montserrat", sans-serif;
-  font-weight: 300;
-  line-height: 0.9;
-  font-size: clamp(42px, 6vw, 88px);
-  letter-spacing: -2px;
-}
-.section-head > p, .story-block p, .contact-copy {
-  max-width: 430px;
-  margin: 0;
-  color: var(--muted-dark);
-}
-.dark-section .section-head > p { color: var(--muted); }
+        <div class="service-grid">
+          <article>
+            <b>01</b>
+            <h3>Direction & DoP</h3>
+            <p>Cinematic storytelling for films, campaigns, and personal brand projects.</p>
+          </article>
+          <article>
+            <b>02</b>
+            <h3>Editing & Color</h3>
+            <p>Editorial rhythm and tonal grading that preserve atmosphere and clarity.</p>
+          </article>
+          <article>
+            <b>03</b>
+            <h3>Creative Production</h3>
+            <p>Project planning, team coordination, shooting direction, and delivery.</p>
+          </article>
+          <article>
+            <b>04</b>
+            <h3>AI Workflow</h3>
+            <p>Selective AI-assisted production systems used to support creative thinking.</p>
+          </article>
+        </div>
+      </section>
 
-.work-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(220px, 1fr));
-  gap: 18px;
-}
-.work-card {
-  position: relative;
-  min-height: 430px;
-  overflow: hidden;
-  padding: 20px;
-  display: flex;
-  align-items: end;
-  border: 1px solid rgba(0,0,0,0.08);
-  background: linear-gradient(135deg, #201c18, #867155);
-}
-.work-card:nth-child(2n) { background: linear-gradient(135deg, #111111, #3b4e51); }
-.work-card:nth-child(3n) { background: linear-gradient(135deg, #0e0e0e, #563a37); }
-.work-card:nth-child(4n) { background: linear-gradient(135deg, #1a1b1a, #756557); }
-.work-card:nth-child(5n) { background: linear-gradient(135deg, #141b20, #4a6567); }
-.work-card:nth-child(6n) { background: linear-gradient(135deg, #181216, #5f4e67); }
-.work-card::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(transparent 18%, rgba(0,0,0,0.78));
-}
-.work-info {
-  position: relative;
-  z-index: 1;
-  color: var(--text);
-}
-.work-info small {
-  display: block;
-  margin-bottom: 10px;
-  font-size: 10px;
-  letter-spacing: 2px;
-  color: var(--sand);
-}
-.work-info h3 {
-  margin: 0 0 12px;
-  font-family: "Montserrat", sans-serif;
-  font-size: 38px;
-  font-weight: 300;
-  letter-spacing: -1px;
-}
-.work-info p {
-  margin: 0;
-  font-size: 12px;
-  color: rgba(255,255,255,0.82);
-}
+      <section id="pricing" class="section white-section">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow dark">PRICING</p>
+            <h2>Choose the<br /><em>project scale.</em></h2>
+          </div>
+          <p>Rates are indicative and vary according to concept, production scale, and deliverables.</p>
+        </div>
 
-.portrait-card {
-  min-height: 540px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 12px;
-  background: linear-gradient(145deg, #171717, #0b0b0b);
-  border: 1px solid var(--line);
-}
-.portrait-mark {
-  width: 110px;
-  height: 110px;
-  font-size: 94px;
-  border-color: rgba(99,125,146,0.35);
-  color: var(--slate);
-}
-.portrait-card small {
-  color: var(--slate);
-  letter-spacing: 3px;
-  font-size: 11px;
-}
-.story-block p {
-  color: var(--muted);
-  line-height: 2;
-  max-width: 560px;
-}
+        <div class="price-grid">
+          <article class="price-card">
+            <p class="eyebrow dark">01 / STARTER</p>
+            <h3>Essential</h3>
+            <strong>From $250</strong>
+            <ul>
+              <li>Concept and planning</li>
+              <li>Single-day shoot</li>
+              <li>Short-form edit</li>
+            </ul>
+            <a href="#contact" class="btn secondary">REQUEST A QUOTE</a>
+          </article>
 
-.service-grid {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(180px, 1fr));
-  gap: 16px;
-}
-.service-grid article {
-  min-height: 240px;
-  padding: 24px 20px;
-  border: 1px solid var(--line);
-  background: rgba(255,255,255,0.02);
-}
-.service-grid b {
-  color: var(--slate);
-  font-size: 28px;
-  font-family: "Montserrat", sans-serif;
-  font-weight: 300;
-}
-.service-grid h3 {
-  margin: 20px 0 16px;
-  font-family: "Montserrat", sans-serif;
-  font-size: 30px;
-  font-weight: 300;
-}
-.service-grid p {
-  margin: 0;
-  color: #d0c9c1;
-  font-size: 13px;
-}
+          <article class="price-card featured">
+            <p class="eyebrow">02 / SIGNATURE</p>
+            <h3>Signature</h3>
+            <strong>From $650</strong>
+            <ul>
+              <li>Creative development</li>
+              <li>Direction + cinematography</li>
+              <li>Final color and delivery</li>
+            </ul>
+            <a href="#contact" class="btn primary">REQUEST A QUOTE</a>
+          </article>
 
-.price-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(220px, 1fr));
-  gap: 18px;
-}
-.price-card {
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
-  min-height: 390px;
-  padding: 30px 22px;
-  border: 1px solid rgba(25,25,25,0.12);
-  background: white;
-  color: var(--text-dark);
-}
-.price-card.featured {
-  background: #161311;
-  color: var(--text);
-  transform: translateY(-10px);
-  border-color: rgba(99,125,146,0.35);
-}
-.price-card h3 {
-  margin: 0;
-  font-family: "Montserrat", sans-serif;
-  font-size: 42px;
-  font-weight: 300;
-}
-.price-card strong {
-  font-size: 24px;
-}
-.price-card ul {
-  margin: 0;
-  padding-inline-start: 18px;
-  line-height: 2;
-  color: var(--muted-dark);
-}
-.price-card.featured ul { color: #d6d0c9; }
+          <article class="price-card">
+            <p class="eyebrow dark">03 / CUSTOM</p>
+            <h3>Custom</h3>
+            <strong>Let’s talk</strong>
+            <ul>
+              <li>Full production support</li>
+              <li>Cast and location management</li>
+              <li>Multi-platform campaign work</li>
+            </ul>
+            <a href="#contact" class="btn secondary">START THE CONVO</a>
+          </article>
+        </div>
+      </section>
 
-.team-section {
-  background: #efe7df;
-  color: var(--text-dark);
-}
-.team-card {
-  display: flex;
-  align-items: center;
-  gap: 28px;
-  padding: 26px 28px;
-  background: white;
-  border-top: 3px solid var(--slate);
-  box-shadow: 0 12px 24px rgba(0,0,0,0.04);
-}
-.avatar {
-  width: 84px;
-  height: 84px;
-  background: rgba(99,125,146,0.06);
-  border-color: rgba(99,125,146,0.35);
-  font-size: 52px;
-}
-.team-card h3 {
-  margin: 0 0 8px;
-  font-family: "Montserrat", sans-serif;
-  font-size: 42px;
-  font-weight: 300;
-}
-.team-card p {
-  margin: 0;
-  color: var(--muted-dark);
-}
-.team-number {
-  margin-inline-start: auto;
-  font-family: "Montserrat", sans-serif;
-  font-size: 46px;
-  font-weight: 300;
-  color: var(--slate);
-}
+      <section class="section team-section">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">TEAM</p>
+            <h2>Clear leadership.<br /><em>Shared vision.</em></h2>
+          </div>
+          <p>Mohaned leads the creative process with precision and clarity, assembling the right talent per project.</p>
+        </div>
 
-.contact-section {
-  padding: 110px 8% 90px;
-  border-top: 1px solid rgba(99,125,146,0.28);
-}
-.contact-copy {
-  margin: 20px 0 28px;
-  color: var(--muted);
-  max-width: 640px;
-}
-.contact-links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 18px;
-}
-.contact-links a {
-  color: var(--slate);
-  font-size: 13px;
-  border-bottom: 1px solid transparent;
-}
-.contact-links a:hover { border-color: var(--slate); }
+        <div class="team-card">
+          <div class="avatar">M</div>
+          <div>
+            <p class="eyebrow">TEAM LEADER</p>
+            <h3>Mohaned Lotfy</h3>
+            <p>Director · Creative Director · Cinematographer · Editor · Producer</p>
+          </div>
+          <span class="team-number">01</span>
+        </div>
+      </section>
 
-.site-footer {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
-  padding: 20px 8% 90px;
-  border-top: 1px solid rgba(255,255,255,0.05);
-  color: var(--muted);
-  font-size: 12px;
-}
-.footer-meta, .footer-links {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 16px;
-}
-.mini-link {
-  border: 0;
-  background: transparent;
-  color: var(--slate);
-  padding: 0;
-}
+      <section id="contact" class="section contact-section">
+        <p class="eyebrow">LET’S TALK</p>
+        <h2>Let’s create<br /><em>something unforgettable.</em></h2>
+        <p class="contact-copy">For film projects, commercial work, campaigns, or artistic collaborations.</p>
+        <div class="contact-links">
+          <a href="mailto:mmohaned203@gmail.com">mmohaned203@gmail.com</a>
+          <a href="tel:+201272527381">+20 127 252 7381</a>
+          <a href="https://wa.me/201554622038" target="_blank" rel="noreferrer">WhatsApp</a>
+          <a href="https://www.facebook.com/mohanedlotfy777" target="_blank" rel="noreferrer">Facebook Portfolio ↗</a>
+        </div>
+      </section>
+    </main>
 
-.search-modal, .policy-modal {
-  position: fixed;
-  inset: 0;
-  z-index: 120;
-  display: none;
-  place-items: center;
-  background: rgba(0,0,0,0.8);
-  padding: 26px;
-}
-.search-modal.open, .policy-modal.open { display: grid; }
-.search-box, .policy-box {
-  position: relative;
-  width: min(700px, 100%);
-  background: var(--card);
-  color: var(--text-dark);
-  padding: 38px 28px 18px;
-  box-shadow: 0 24px 60px rgba(0,0,0,0.35);
-}
-.close-btn {
-  position: absolute;
-  top: 12px;
-  right: 12px;
-  border: 0;
-  background: transparent;
-  font-size: 30px;
-  color: var(--text-dark);
-}
-.search-box input {
-  width: 100%;
-  border: 0;
-  border-bottom: 1px solid rgba(0,0,0,0.22);
-  background: transparent;
-  padding: 14px 0 12px;
-  outline: none;
-  color: var(--text-dark);
-  font-size: 18px;
-}
-.search-results {
-  margin-top: 14px;
-  display: grid;
-  gap: 10px;
-}
-.search-result {
-  padding: 12px 0;
-  border-bottom: 1px solid rgba(0,0,0,0.08);
-}
-.search-result strong {
-  display: block;
-  margin-bottom: 4px;
-}
-.search-result small {
-  color: var(--muted-dark);
-}
+    <footer class="site-footer">
+      <div class="footer-meta">
+        <span>© 2025 Mohaned Lotfy</span>
+        <span>Director / Producer / DoP</span>
+      </div>
+      <div class="footer-links">
+        <button type="button" class="mini-link" data-policy="privacy">Privacy</button>
+        <button type="button" class="mini-link" data-policy="terms">Terms</button>
+        <button type="button" class="mini-link" data-policy="copyright">Copyright</button>
+      </div>
+    </footer>
 
-.chat-widget {
-  position: fixed;
-  right: 22px;
-  bottom: 88px;
-  z-index: 100;
-}
-.chat-toggle {
-  border: 0;
-  background: var(--slate);
-  color: var(--text);
-  padding: 14px 18px;
-  letter-spacing: 1px;
-  font-size: 11px;
-  text-transform: uppercase;
-  box-shadow: 0 18px 30px rgba(0,0,0,0.25);
-}
-.chat-box {
-  display: none;
-  width: min(360px, calc(100vw - 28px));
-  background: #f5f0ea;
-  color: var(--text-dark);
-  box-shadow: 0 18px 33px rgba(0,0,0,0.22);
-  margin-top: 10px;
-}
-.chat-box.open { display: block; }
-.chat-head {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 14px 16px;
-  background: var(--bg);
-  color: var(--text);
-}
-.chat-head button {
-  border: 0;
-  background: transparent;
-  color: var(--slate);
-  font-size: 24px;
-}
-.chat-messages {
-  max-height: 250px;
-  overflow: auto;
-  padding: 12px 14px;
-  display: grid;
-  gap: 10px;
-}
-.bot-msg, .user-msg {
-  max-width: 86%;
-  padding: 10px 12px;
-  font-size: 13px;
-  line-height: 1.6;
-}
-.bot-msg { background: #e3d9ce; }
-.user-msg {
-  margin-inline-start: auto;
-  background: var(--slate);
-  color: var(--text);
-}
-.chat-input-row {
-  display: flex;
-  align-items: center;
-  border-top: 1px solid rgba(0,0,0,0.12);
-}
-.chat-input-row input {
-  flex: 1;
-  border: 0;
-  background: transparent;
-  padding: 14px 12px;
-  outline: none;
-}
-.chat-input-row button {
-  border: 0;
-  background: var(--slate);
-  color: var(--text);
-  height: 48px;
-  padding: 0 16px;
-}
-.chat-box small {
-  display: block;
-  padding: 8px 12px 12px;
-  color: #6c6763;
-  font-size: 10px;
-}
+    <div class="search-modal" id="searchModal">
+      <div class="search-box">
+        <button class="close-btn" id="searchClose" aria-label="Close search">×</button>
+        <p class="eyebrow">SEARCH</p>
+        <input id="searchInput" type="text" placeholder="Search for a film or service..." />
+        <div id="searchResults" class="search-results"></div>
+      </div>
+    </div>
 
-.bottom-tabs {
-  position: fixed;
-  z-index: 110;
-  left: 50%;
-  transform: translateX(-50%);
-  bottom: 14px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 8px 10px;
-  background: rgba(17,17,17,0.94);
-  border: 1px solid rgba(99,125,146,0.35);
-  border-radius: 999px;
-}
-.tab {
-  min-width: 62px;
-  padding: 9px 8px;
-  border: 0;
-  background: transparent;
-  color: var(--text);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 4px;
-  font-size: 12px;
-}
-.tab.active {
-  background: rgba(99,125,146,0.14);
-  border-radius: 12px;
-}
+    <div class="chat-widget">
+      <button id="chatToggle" class="chat-toggle">✦ ASK ABOUT FILMS</button>
+      <div class="chat-box" id="chatBox">
+        <div class="chat-head">
+          <span>Mohaned AI Guide</span>
+          <button id="chatClose" aria-label="Close chat">×</button>
+        </div>
+        <div class="chat-messages" id="messages">
+          <div class="bot-msg">Hello! Ask me about films, services, experience or pricing.</div>
+        </div>
+        <div class="chat-input-row">
+          <input id="chatInput" type="text" placeholder="Type your question..." />
+          <button id="sendChat">↗</button>
+        </div>
+        <small>Source: CV and website content. This is informational only and not a replacement for direct contact.</small>
+      </div>
+    </div>
 
-.bottom-panel {
-  position: fixed;
-  left: 50%;
-  transform: translateX(-50%);
-  bottom: 88px;
-  z-index: 108;
-  display: none;
-  width: min(420px, calc(100vw - 20px));
-}
-.bottom-panel.open { display: block; }
-.panel-box {
-  background: var(--card);
-  color: var(--text-dark);
-  padding: 20px 18px;
-  box-shadow: 0 18px 36px rgba(0,0,0,0.2);
-}
-.role-grid {
-  display: grid;
-  gap: 10px;
-  margin-top: 12px;
-}
-.role-btn {
-  border: 1px solid rgba(0,0,0,0.1);
-  background: #f5f0ea;
-  padding: 12px;
-  text-align: left;
-}
-.check-row {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 12px;
-}
-.login-form {
-  display: grid;
-  gap: 10px;
-}
-.login-form input {
-  width: 100%;
-  padding: 12px;
-  border: 1px solid rgba(0,0,0,0.12);
-  background: white;
-}
+    <div class="bottom-tabs">
+      <button class="tab active" data-target="chat" type="button"><span>✦</span><small>AI</small></button>
+      <button class="tab" data-target="search" type="button"><span>⌕</span><small>Search</small></button>
+      <button class="tab" data-target="role" type="button"><span>◎</span><small>Role</small></button>
+      <button class="tab" data-target="settings" type="button"><span>⚙</span><small>Settings</small></button>
+      <button class="tab" data-target="login" type="button"><span>◌</span><small>Login</small></button>
+    </div>
 
-@media (max-width: 900px) {
-  .main-nav { display: none; }
-  .menu-btn { display: block; }
-  .hero { display: block; padding-top: 150px; }
-  .hero-meta { margin-top: 70px; }
-  .section-head, .split-section { display: block; }
-  .section-head > p { margin-top: 22px; }
-  .work-grid, .price-grid, .service-grid { grid-template-columns: 1fr 1fr; }
-  .team-card { flex-wrap: wrap; }
-  .team-number { margin-inline-start: 0; }
-  .chat-widget { right: 12px; }
-}
+    <div class="bottom-panel" id="panelRole">
+      <div class="panel-box">
+        <p class="eyebrow">Choose your role</p>
+        <div class="role-grid">
+          <button type="button" class="role-btn">Filmmaker / Writer</button>
+          <button type="button" class="role-btn">Investor</button>
+          <button type="button" class="role-btn">Client / Viewer</button>
+        </div>
+      </div>
+    </div>
 
-@media (max-width: 620px) {
-  .work-grid, .price-grid, .service-grid { grid-template-columns: 1fr; }
-  .brand-wordmark { display: none; }
-  .hero h1 { letter-spacing: -3px; }
-  .site-footer { display: block; }
-  .footer-links { margin-top: 12px; }
-  .bottom-tabs { width: calc(100vw - 24px); justify-content: space-between; }
-  .tab { min-width: 0; flex: 1; }
-}
+    <div class="bottom-panel" id="panelSettings">
+      <div class="panel-box">
+        <p class="eyebrow">Settings</p>
+        <label class="check-row"><input type="checkbox" checked /> Dark mode</label>
+        <label class="check-row"><input type="checkbox" /> Accessibility mode</label>
+        <button type="button" class="btn primary full">Save</button>
+      </div>
+    </div>
+
+    <div class="bottom-panel" id="panelLogin">
+      <div class="panel-box">
+        <p class="eyebrow">Login</p>
+        <form class="login-form">
+          <input type="email" placeholder="Email" />
+          <input type="password" placeholder="Password" />
+          <button type="submit" class="btn primary full">Sign in</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="policy-modal" id="policyModal">
+      <div class="policy-box">
+        <button type="button" class="close-btn" id="policyClose">×</button>
+        <div id="policyContent"></div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
