@@ -1,3 +1,23 @@
+const projects = [
+  ['The Other Side of the Sun', '2019', 'Drama', 'An aspiring actor rebuilds his ambition after failure.'],
+  ['Water', '2022', 'Drama', 'A musician faces rejection, loss and fractured memory.'],
+  ['Adghath', '2024', 'Psychological Horror', 'Five interconnected short films exploring psychological horror.'],
+  ['Come Across', '2024', 'Drama', 'Self-discovery intertwines with an unexpected love story.'],
+  ['The Idea of the Film', '2025', 'Meta Comedy', 'A director searches for an idea and finds the film in that search.'],
+  ['Lady of the Moonlit Night', '2025', 'Psychological Drama', 'Longing for connection leads a lonely man into hallucination.']
+];
+
+const workGrid = document.getElementById('workGrid');
+workGrid.innerHTML = projects.map((project) => `
+  <article class="work-card">
+    <div class="work-info">
+      <small>${project[1]}</small>
+      <h3>${project[0]}</h3>
+      <p>${project[2]}</p>
+    </div>
+  </article>
+`).join('');
+
 const copy = {
   ar: {
     eyebrow: 'صانع أفلام من الإسكندرية',
@@ -68,44 +88,25 @@ const copy = {
     teamBio: 'Director · Creative Director · Cinematographer · Editor · Producer',
     contactLabel: 'Let’s talk',
     contactTitle: 'Let’s create something<br><em>unforgettable.</em>',
-    contactText: 'For professional inquiries, advertising, films, or any creative collaboration.',
+    contactText: 'For professional inquiries, commercials, films, or creative collaborations.',
     ask: 'Ask about films',
     botWelcome: 'Hello! Ask me about films, services, experience or pricing.',
     sourceNote: 'Source: CV and website content. This is an informational assistant and not a replacement for direct contact.'
   }
 };
 
-const projects = [
-  ['The Other Side of the Sun', '2019', 'Drama', 'An aspiring actor rebuilds his ambition after failure.'],
-  ['Water', '2022', 'Drama', 'A musician faces rejection, loss and fractured memory.'],
-  ['Adghath', '2024', 'Psychological Horror', 'Five interconnected short films exploring psychological horror.'],
-  ['Come Across', '2024', 'Drama', 'Self-discovery intertwines with an unexpected love story.'],
-  ['The Idea of the Film', '2025', 'Meta Comedy', 'A director searches for an idea and finds the film in that search.'],
-  ['Lady of the Moonlit Night', '2025', 'Psychological Drama', 'Longing for connection leads a lonely man into hallucination.']
-];
-
-const workGrid = document.getElementById('workGrid');
-workGrid.innerHTML = projects.map(p => `
-  <article class="work-card">
-    <div class="work-info">
-      <small>${p[1]}</small>
-      <h3>${p[0]}</h3>
-      <p>${p[2]}</p>
-    </div>
-  </article>
-`).join('');
-
 let activeLang = localStorage.getItem('mohaned-lang') || 'ar';
-const safeSearchTerms = ['adult', 'porn', 'xxx', 'sexual', 'explicit', 'nsfw'];
 
 const languageGate = document.getElementById('languageGate');
 const langToggle = document.getElementById('langToggle');
+
+type LanguageKey = keyof typeof copy.ar;
 
 function setLanguage(lang) {
   activeLang = lang;
   document.documentElement.lang = lang;
   document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
-  document.querySelectorAll('[data-t]').forEach(el => {
+  document.querySelectorAll('[data-t]').forEach((el) => {
     const key = el.dataset.t;
     if (copy[lang][key]) {
       el.innerHTML = copy[lang][key];
@@ -116,8 +117,8 @@ function setLanguage(lang) {
   languageGate.classList.add('hidden');
 }
 
-document.querySelectorAll('[data-language]').forEach(btn => {
-  btn.addEventListener('click', () => setLanguage(btn.dataset.language));
+document.querySelectorAll('[data-language]').forEach((button) => {
+  button.addEventListener('click', () => setLanguage(button.dataset.language));
 });
 
 langToggle.addEventListener('click', () => {
@@ -142,26 +143,19 @@ document.getElementById('searchClose').addEventListener('click', () => {
 searchInput.addEventListener('input', () => {
   const query = searchInput.value.trim().toLowerCase();
   if (!query) {
-    searchResults.innerHTML = '<p>اكتب كلمة للبحث داخل الموقع.</p>';
+    searchResults.innerHTML = '<p>Type a keyword to search the portfolio.</p>';
     return;
   }
 
-  const hasUnsafeWord = safeSearchTerms.some(word => query.includes(word));
-  if (hasUnsafeWord) {
-    searchResults.innerHTML = '<p>البحث الآمن يحظر المواقع أو الكلمات غير المسموح بها.</p>';
-    return;
-  }
-
-  const filtered = projects.filter(item => item.join(' ').toLowerCase().includes(query));
-
+  const filtered = projects.filter((project) => project.join(' ').toLowerCase().includes(query));
   searchResults.innerHTML = filtered.length
-    ? filtered.map(item => `
+    ? filtered.map((item) => `
       <div class="search-result">
         <strong>${item[0]}</strong>
         <small>${item[1]} · ${item[2]}</small>
       </div>
     `).join('')
-    : '<p>لا توجد نتائج.</p>';
+    : '<p>No results found.</p>';
 });
 
 const chatBox = document.getElementById('chatBox');
@@ -178,22 +172,19 @@ function addMessage(text, isUser = false) {
 
 function getAiReply(question) {
   const q = question.toLowerCase();
-  if (q.includes('فيلم') || q.includes('movie') || q.includes('film')) {
-    return 'أشهر أعمال المهندس: The Other Side of the Sun، Water، Adghath، Come Across، The Idea of the Film، وLady of the Moonlit Night.';
+  if (q.includes('film') || q.includes('movie') || q.includes('فيلم')) {
+    return 'Selected works include The Other Side of the Sun, Water, Adghath, Come Across, The Idea of the Film, and Lady of the Moonlit Night.';
   }
-  if (q.includes('سعر') || q.includes('price') || q.includes('pricing')) {
-    return 'الأسعار تبدأ عادةً من $250 للمشروعات الأساسية، و$650 للباقات المتكاملة، مع تقدير شخصي للمشاريع الكبيرة.';
+  if (q.includes('price') || q.includes('pricing') || q.includes('سعر')) {
+    return 'Project prices typically start at $250 for smaller work and $650 for signature production packages, depending on scope.';
   }
-  if (q.includes('خدمة') || q.includes('service') || q.includes('عمل') || q.includes('work')) {
-    return 'الخدمات تشمل الإخراج، التصوير، المونتاج، التلوين، الإنتاج الإبداعي، وأدوات AI في الإنتاج.';
+  if (q.includes('service') || q.includes('خدمة') || q.includes('work')) {
+    return 'Services include direction, cinematography, editing, colour grading, creative production, and AI-assisted production workflows.';
   }
-  if (q.includes('خبرة') || q.includes('experience') || q.includes('about')) {
-    return 'مهند لطفي يعمل في الإخراج، التصوير السينمائي، المونتاج، والإنتاج الإبداعي، ويجمع رؤية سينمائية مع خبرة إنتاجية عملية.';
+  if (q.includes('experience') || q.includes('خبرة') || q.includes('about')) {
+    return 'Mohaned Lotfy works across directing, cinematography, editing, and creative production, creating cinematic work grounded in human detail and visual clarity.';
   }
-  if (q.includes('تواصل') || q.includes('contact') || q.includes('طلب')) {
-    return 'يمكنك التواصل عبر البريد الإلكتروني أو الواتساب أو نموذج التواصل في الموقع، مع إعداد عرض سعر ومناقشة المشروع.';
-  }
-  return 'أستطيع الإجابة عن الأفلام، الخدمات، الخبرة، والأسعار. يمكنك أيضًا سؤال: ما هي أشهر أعمالك؟ أو ما هي أسعارك؟';
+  return 'I can answer questions about films, services, pricing, and experience. You can also ask: which projects are your most important?';
 }
 
 document.getElementById('chatToggle').addEventListener('click', () => {
@@ -212,8 +203,8 @@ document.getElementById('sendChat').addEventListener('click', () => {
   chatInput.value = '';
 });
 
-chatInput.addEventListener('keydown', (e) => {
-  if (e.key === 'Enter') {
+chatInput.addEventListener('keydown', (event) => {
+  if (event.key === 'Enter') {
     document.getElementById('sendChat').click();
   }
 });
@@ -228,42 +219,32 @@ const tabs = document.querySelectorAll('.tab');
 const panels = document.querySelectorAll('.bottom-panel');
 
 function hidePanels() {
-  panels.forEach(panel => panel.classList.remove('open'));
+  panels.forEach((panel) => panel.classList.remove('open'));
 }
 
-tabs.forEach(tab => {
+tabs.forEach((tab) => {
   tab.addEventListener('click', () => {
-    tabs.forEach(item => item.classList.remove('active'));
+    tabs.forEach((item) => item.classList.remove('active'));
     tab.classList.add('active');
     const target = tab.dataset.target;
     hidePanels();
-    if (target === 'chat') {
-      chatBox.classList.add('open');
-    }
-    if (target === 'search') {
-      searchModal.classList.add('open');
-    }
-    if (target === 'role') {
-      document.getElementById('panelRole').classList.add('open');
-    }
-    if (target === 'settings') {
-      document.getElementById('panelSettings').classList.add('open');
-    }
-    if (target === 'login') {
-      document.getElementById('panelLogin').classList.add('open');
-    }
+    if (target === 'chat') chatBox.classList.add('open');
+    if (target === 'search') searchModal.classList.add('open');
+    if (target === 'role') document.getElementById('panelRole').classList.add('open');
+    if (target === 'settings') document.getElementById('panelSettings').classList.add('open');
+    if (target === 'login') document.getElementById('panelLogin').classList.add('open');
   });
 });
 
-document.querySelectorAll('.role-btn').forEach(btn => {
+document.querySelectorAll('.role-btn').forEach((btn) => {
   btn.addEventListener('click', () => {
     alert('Selected role: ' + btn.textContent.trim());
   });
 });
 
-document.querySelector('.login-form').addEventListener('submit', (e) => {
-  e.preventDefault();
-  alert('Login form activated (demo mode). Connect Firebase later.');
+document.querySelector('.login-form').addEventListener('submit', (event) => {
+  event.preventDefault();
+  alert('Login form is ready for Firebase integration.');
 });
 
 const policyModal = document.getElementById('policyModal');
@@ -279,11 +260,11 @@ const policyMap = {
   },
   copyright: {
     title: 'Copyright Policy',
-    body: 'All creative content, portfolio work, and materials displayed on this site remain the property of Mohaned Lotfy unless otherwise stated. Unauthorized use is prohibited.'
+    body: 'All creative content displayed on this site remains the property of Mohaned Lotfy unless otherwise stated. Unauthorized use is prohibited.'
   }
 };
 
-document.querySelectorAll('[data-policy]').forEach(el => {
+document.querySelectorAll('[data-policy]').forEach((el) => {
   el.addEventListener('click', () => {
     const key = el.dataset.policy;
     const item = policyMap[key];

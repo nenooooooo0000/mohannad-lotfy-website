@@ -3,127 +3,131 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Mohaned Lotfy — filmmaker, director, cinematographer, editor and creative producer." />
-    <title>Mohaned Lotfy | Filmmaker</title>
+    <meta name="description" content="MOHANED LOTFY — Director / Producer / DoP. Contemporary Egyptian auteur filmmaker." />
+    <title>MOHANED LOTFY | Director / Producer / DoP</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <div class="language-gate" id="languageGate">
       <div class="gate-card">
-        <span class="monogram">ML</span>
+        <div class="logo-mark">M</div>
         <p class="eyebrow">WELCOME / أهلاً</p>
-        <h1>Choose your language<br /><em>اختر لغتك</em></h1>
+        <h1>Choose your language<br /><span>اختر لغتك</span></h1>
         <div class="language-options">
-          <button data-language="ar">العربية</button>
-          <button data-language="en">English</button>
+          <button type="button" data-language="ar">العربية</button>
+          <button type="button" data-language="en">English</button>
         </div>
       </div>
     </div>
 
     <header class="topbar">
       <a class="brand" href="#home" aria-label="Mohaned Lotfy home">
-        <b>ML</b>
-        <span>MOHANED LOTFY</span>
+        <div class="brand-mark">M</div>
+        <div class="brand-wordmark">
+          <span class="word-main">MOHANED LOTFY</span>
+          <span class="word-sub">DIRECTOR / PRODUCER / DoP</span>
+        </div>
       </a>
+
       <nav class="main-nav">
-        <a href="#home">الرئيسية</a>
-        <a href="#work">الأعمال</a>
-        <a href="#about">عن المخرج</a>
-        <a href="#services">الخدمات</a>
-        <a href="#pricing">الأسعار</a>
-        <a href="#contact">تواصل</a>
+        <a href="#home">HOME</a>
+        <a href="#work">WORK</a>
+        <a href="#about">ABOUT</a>
+        <a href="#services">SERVICES</a>
+        <a href="#pricing">PRICING</a>
+        <a href="#contact">CONTACT</a>
       </nav>
+
       <div class="header-actions">
-        <button id="searchOpen" class="icon-btn" aria-label="Search">⌕</button>
+        <button id="searchOpen" class="utility-btn" aria-label="Search">⌕</button>
         <button id="langToggle" class="lang-btn">EN</button>
         <button id="menuToggle" class="menu-btn" aria-label="Open menu">☰</button>
       </div>
     </header>
 
     <div class="mobile-nav" id="mobileNav">
-      <a href="#home">الرئيسية</a>
-      <a href="#work">الأعمال</a>
-      <a href="#about">عن المخرج</a>
-      <a href="#services">الخدمات</a>
-      <a href="#pricing">الأسعار</a>
-      <a href="#contact">تواصل</a>
+      <a href="#home">HOME</a>
+      <a href="#work">WORK</a>
+      <a href="#about">ABOUT</a>
+      <a href="#services">SERVICES</a>
+      <a href="#pricing">PRICING</a>
+      <a href="#contact">CONTACT</a>
     </div>
 
     <main>
       <section id="home" class="hero">
         <div class="hero-copy">
-          <p class="eyebrow" data-t="eyebrow">صانع أفلام من الإسكندرية</p>
+          <p class="eyebrow">DIRECTOR / PRODUCER / DoP</p>
           <h1>MOHANED<br /><em>LOTFY</em></h1>
-          <p class="lead" data-t="tagline">حكايات تُصنع من الضوء، والإحساس، والحقيقة البصرية.</p>
+          <p class="lead">Contemporary Egyptian auteur cinema shaped by intention, silence, and human truth.</p>
           <div class="hero-actions">
-            <a class="btn primary" href="#work" data-t="explore">استكشف الأعمال</a>
-            <a class="btn secondary" href="#contact" data-t="start">ابدأ مشروعًا</a>
+            <a href="#work" class="btn primary">SELECTED WORK</a>
+            <a href="#contact" class="btn secondary">START A PROJECT</a>
           </div>
         </div>
         <div class="hero-meta">
           <span>DIRECTOR</span>
-          <span>DP / EDITOR</span>
           <span>PRODUCER</span>
+          <span>DoP</span>
         </div>
       </section>
 
       <section id="work" class="section white-section">
         <div class="section-head">
           <div>
-            <p class="eyebrow dark" data-t="selected">مختارات</p>
-            <h2 data-t="workTitle">أعمال تحكي أكثر<br /><em>مما تقول.</em></h2>
+            <p class="eyebrow dark">SELECTED</p>
+            <h2>Films that say<br /><em>more than words.</em></h2>
           </div>
-          <p data-t="workIntro">أفلام سردية، إعلانات، وحملات إبداعية — من الفكرة إلى الشاشة.</p>
+          <p>Artistic films, campaigns and narrative projects created with cinematic clarity.</p>
         </div>
-
         <div class="work-grid" id="workGrid"></div>
       </section>
 
       <section id="about" class="section split-section">
         <div class="portrait-card">
-          <span>ML</span>
+          <div class="portrait-mark">M</div>
           <small>ALEXANDRIA / EGYPT</small>
         </div>
         <div class="story-block">
-          <p class="eyebrow" data-t="aboutLabel">عن المخرج</p>
-          <h2 data-t="aboutTitle">الصورة تحكي<br /><em>ما لا يقوله الكلام.</em></h2>
-          <p data-t="aboutText">مهند لطفي صانع أفلام مصري يعمل في الإخراج، والتصوير السينمائي، والمونتاج، والإنتاج الإبداعي. يمتلك خبرة متراكمة في الإعلانات، المحتوى التجاري، الأفلام القصيرة، والمشروعات السردية.</p>
-          <p data-t="aboutText2">يجمع أسلوبه بين السرد البصري والتكوين الدقيق والاهتمام بالتفاصيل الإنسانية، مع استكشاف أدوات الذكاء الاصطناعي لتوسيع إمكانيات صناعة الصورة.</p>
+          <p class="eyebrow">ABOUT</p>
+          <h2>The image says<br /><em>what words cannot.</em></h2>
+          <p>Mohaned Lotfy is an Egyptian filmmaker working across directing, cinematography, editing, and creative production. His work blends authored visual storytelling with a strong sense of atmosphere, silence, and emotional precision.</p>
+          <p>He approaches every project with cinematic discipline, human attention, and a contemporary visual language grounded in Egypt and shaped for international audiences.</p>
         </div>
       </section>
 
       <section id="services" class="section dark-section">
         <div class="section-head">
           <div>
-            <p class="eyebrow" data-t="servicesLabel">الخدمات</p>
-            <h2 data-t="servicesTitle">من الفكرة<br />إلى التنفيذ.</h2>
+            <p class="eyebrow">SERVICES</p>
+            <h2>From idea<br />to execution.</h2>
           </div>
-          <p data-t="servicesIntro">فريق إبداعي يقود مشروعك بصريًا وإنتاجيًا حتى التسليم النهائي.</p>
+          <p>Creative leadership from concept to delivery, balancing artistic intention and practical production.</p>
         </div>
 
         <div class="service-grid">
           <article>
             <b>01</b>
-            <h3 data-t="s1">إخراج وتصوير</h3>
-            <p data-t="s1d">إعلانات، أفلام قصيرة، ومحتوى بصري بهوية سينمائية.</p>
+            <h3>Direction & DoP</h3>
+            <p>Cinematic storytelling for films, campaigns, and personal brand projects.</p>
           </article>
           <article>
             <b>02</b>
-            <h3 data-t="s2">مونتاج وتلوين</h3>
-            <p data-t="s2d">إيقاع، سرد، وتصحيح ألوان يرفع قيمة كل لقطة.</p>
+            <h3>Editing & Color</h3>
+            <p>Editorial rhythm and tonal grading that preserve atmosphere and clarity.</p>
           </article>
           <article>
             <b>03</b>
-            <h3 data-t="s3">إنتاج إبداعي</h3>
-            <p data-t="s3d">إدارة الفريق والميزانية والجدول من الفكرة إلى التسليم.</p>
+            <h3>Creative Production</h3>
+            <p>Project planning, team coordination, shooting direction, and delivery.</p>
           </article>
           <article>
             <b>04</b>
-            <h3 data-t="s4">AI Video Workflows</h3>
-            <p data-t="s4d">استخدام Runway وTopaz AI كأدوات مساعدة في الإنتاج.</p>
+            <h3>AI Workflow</h3>
+            <p>Selective AI-assisted production systems used to support creative thinking.</p>
           </article>
         </div>
       </section>
@@ -131,47 +135,47 @@
       <section id="pricing" class="section white-section">
         <div class="section-head">
           <div>
-            <p class="eyebrow dark" data-t="pricingLabel">الأسعار</p>
-            <h2 data-t="pricingTitle">اختر مستوى<br /><em>المشروع.</em></h2>
+            <p class="eyebrow dark">PRICING</p>
+            <h2>Choose the<br /><em>project scale.</em></h2>
           </div>
-          <p data-t="pricingIntro">الأسعار استرشادية وتتغير حسب الفكرة، عدد أيام التصوير، وحجم الفريق.</p>
+          <p>Rates are indicative and vary according to concept, production scale, and deliverables.</p>
         </div>
 
         <div class="price-grid">
           <article class="price-card">
             <p class="eyebrow dark">01 / STARTER</p>
             <h3>Essential</h3>
-            <strong>من $250</strong>
+            <strong>From $250</strong>
             <ul>
-              <li>فكرة وتخطيط مختصر</li>
-              <li>يوم تصوير واحد</li>
-              <li>مونتاج فيديو قصير</li>
+              <li>Concept and planning</li>
+              <li>Single-day shoot</li>
+              <li>Short-form edit</li>
             </ul>
-            <a href="#contact" class="btn secondary">اطلب عرضًا</a>
+            <a href="#contact" class="btn secondary">REQUEST A QUOTE</a>
           </article>
 
           <article class="price-card featured">
-            <p class="eyebrow">02 / MOST REQUESTED</p>
+            <p class="eyebrow">02 / SIGNATURE</p>
             <h3>Signature</h3>
-            <strong>من $650</strong>
+            <strong>From $650</strong>
             <ul>
-              <li>تطوير الفكرة والسيناريو</li>
-              <li>إخراج وتصوير احترافي</li>
-              <li>مونتاج وتلوين وتسليم نهائي</li>
+              <li>Creative development</li>
+              <li>Direction + cinematography</li>
+              <li>Final color and delivery</li>
             </ul>
-            <a href="#contact" class="btn primary">اطلب عرضًا</a>
+            <a href="#contact" class="btn primary">REQUEST A QUOTE</a>
           </article>
 
           <article class="price-card">
-            <p class="eyebrow dark">03 / FULL PRODUCTION</p>
+            <p class="eyebrow dark">03 / CUSTOM</p>
             <h3>Custom</h3>
-            <strong>محادثة مباشرة</strong>
+            <strong>Let’s talk</strong>
             <ul>
-              <li>فريق إنتاج كامل</li>
-              <li>إدارة مواقع وممثلين</li>
-              <li>حملة متعددة المنصات</li>
+              <li>Full production support</li>
+              <li>Cast and location management</li>
+              <li>Multi-platform campaign work</li>
             </ul>
-            <a href="#contact" class="btn secondary">ابدأ الحوار</a>
+            <a href="#contact" class="btn secondary">START THE CONVO</a>
           </article>
         </div>
       </section>
@@ -179,27 +183,27 @@
       <section class="section team-section">
         <div class="section-head">
           <div>
-            <p class="eyebrow" data-t="teamLabel">الفريق</p>
-            <h2 data-t="teamTitle">قيادة واضحة.<br /><em>رؤية مشتركة.</em></h2>
+            <p class="eyebrow">TEAM</p>
+            <h2>Clear leadership.<br /><em>Shared vision.</em></h2>
           </div>
-          <p data-t="teamIntro">مهند يقود المشروع كـ Team Leader، مع جمع المواهب المناسبة لكل قصة.</p>
+          <p>Mohaned leads the creative process with precision and clarity, assembling the right talent per project.</p>
         </div>
 
         <div class="team-card">
-          <div class="avatar">ML</div>
+          <div class="avatar">M</div>
           <div>
             <p class="eyebrow">TEAM LEADER</p>
             <h3>Mohaned Lotfy</h3>
-            <p data-t="teamBio">Director · Creative Director · Cinematographer · Editor · Producer</p>
+            <p>Director · Creative Director · Cinematographer · Editor · Producer</p>
           </div>
           <span class="team-number">01</span>
         </div>
       </section>
 
       <section id="contact" class="section contact-section">
-        <p class="eyebrow" data-t="contactLabel">لنتحدث</p>
-        <h2 data-t="contactTitle">لنصنع شيئًا<br /><em>لا يُنسى.</em></h2>
-        <p class="contact-copy" data-t="contactText">للاستفسارات المهنية، الإعلانات، الأفلام، أو أي تعاون إبداعي.</p>
+        <p class="eyebrow">LET’S TALK</p>
+        <h2>Let’s create<br /><em>something unforgettable.</em></h2>
+        <p class="contact-copy">For film projects, commercial work, campaigns, or artistic collaborations.</p>
         <div class="contact-links">
           <a href="mailto:mmohaned203@gmail.com">mmohaned203@gmail.com</a>
           <a href="tel:+201272527381">+20 127 252 7381</a>
@@ -212,7 +216,7 @@
     <footer class="site-footer">
       <div class="footer-meta">
         <span>© 2025 Mohaned Lotfy</span>
-        <span>Filmmaker · Alexandria, Egypt</span>
+        <span>Director / Producer / DoP</span>
       </div>
       <div class="footer-links">
         <button type="button" class="mini-link" data-policy="privacy">Privacy</button>
@@ -225,26 +229,26 @@
       <div class="search-box">
         <button class="close-btn" id="searchClose" aria-label="Close search">×</button>
         <p class="eyebrow">SEARCH</p>
-        <input id="searchInput" type="text" placeholder="ابحث عن فيلم أو خدمة..." />
+        <input id="searchInput" type="text" placeholder="Search for a film or service..." />
         <div id="searchResults" class="search-results"></div>
       </div>
     </div>
 
     <div class="chat-widget">
-      <button id="chatToggle" class="chat-toggle">✦ <span data-t="ask">اسأل عن الأفلام</span></button>
+      <button id="chatToggle" class="chat-toggle">✦ ASK ABOUT FILMS</button>
       <div class="chat-box" id="chatBox">
         <div class="chat-head">
           <span>Mohaned AI Guide</span>
           <button id="chatClose" aria-label="Close chat">×</button>
         </div>
         <div class="chat-messages" id="messages">
-          <div class="bot-msg" data-t="botWelcome">أهلًا! اسألني عن الأفلام، الخدمات، الخبرة أو الأسعار.</div>
+          <div class="bot-msg">Hello! Ask me about films, services, experience or pricing.</div>
         </div>
         <div class="chat-input-row">
-          <input id="chatInput" type="text" placeholder="اكتب سؤالك..." />
+          <input id="chatInput" type="text" placeholder="Type your question..." />
           <button id="sendChat">↗</button>
         </div>
-        <small data-t="sourceNote">المصدر: السيرة الذاتية ومحتوى الموقع. هذا مساعد معلوماتي وليس بديلاً عن التواصل المباشر.</small>
+        <small>Source: CV and website content. This is informational only and not a replacement for direct contact.</small>
       </div>
     </div>
 
